@@ -44,7 +44,7 @@ module.exports = {
     
     
     
-      queue.textChannel.send(`**Başlayan Müzik** - [${song.title}](${song.url})`)
+      queue.textChannel.send(`<a:pinn:710206773704785992>  | Başlayan Müzik  |  <a:plah:710206256195043419> [${song.title}](${song.url})  Rythm Gold`)
     
     
   }

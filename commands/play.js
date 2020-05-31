@@ -17,7 +17,7 @@ module.exports = {
     const { channel } = message.member.voice;
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      return message.channel.send("YOU NEED TO BE IN VOICE CHANNEL :/");
+      return message.channel.send("<a:unlem:710206920274870333>  Hata : Sesli Kanala Girmen Lazım Dostum :/");
     }
 
     //WE WILL ADD PERMS ERROR LATER :(
