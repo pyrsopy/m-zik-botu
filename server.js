@@ -59,3 +59,5 @@ client.on("message", message => {
 
 //DONT DO ANYTHING WITH THIS TOKEN lol
 client.login(TOKEN)
+
+
