@@ -12,10 +12,10 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("<a:unlem:710206920274870333>  Hata : Sesli Kanala Girmen Lazım Dostum : /");
+      return message.channel.send("<a:unlem:710206920274870333>  Hata : Şarkı Yokki Atlayayım : /");
     }
 
     serverQueue.connection.dispatcher.end();
-    message.channel.send("✔ | Skipping The Song");
+    message.channel.send("<a:unlem:710206920274870333>  Onay : Tamam Şarkıyı Dediğin Gibi Atladım !");
   }
 };

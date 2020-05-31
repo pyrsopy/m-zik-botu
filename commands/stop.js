@@ -13,12 +13,12 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("<a:unlem:710206920274870333> | Hata : Şarkı Yokki Durdurayım : /");
+      return message.channel.send("<a:unlem:710206920274870333> | Hata : Şarkı Yokki Kapatayım : /");
     }
 
     serverQueue.songs = [];
     serverQueue.connection.dispatcher.end();
 
-    serverQueue.textChannel.send("<a:unlem:710206920274870333>  Onay : Tamam Şarkıyı Dediğin Gibi Durdurdum !");
+    serverQueue.textChannel.send("<a:unlem:710206920274870333>  Onay : Tamam Şarkıyı Dediğin Gibi Kapattım !");
   }
 };

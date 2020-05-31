@@ -11,7 +11,7 @@ module.exports = {
     //FIRST OF ALL WE WILL ADD ERROR MESSAGE AND PERMISSION MESSSAGE
     if (!args.length) {
       //IF AUTHOR DIDENT GIVE URL OR NAME
-      return message.channel.send("WRONG SYNTAX : Type `play <URL> or text`");
+      return message.channel.send("<a:unlem:710206920274870333>  Hata : Yanlış Kullanım | -play **| Şarkı İsmi | Veya URL Si | **!`");
     }
 
     const { channel } = message.member.voice;

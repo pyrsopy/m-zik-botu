@@ -11,7 +11,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("There is nothing playing that i could pause");
+      return message.channel.send("<a:unlem:710206920274870333>  Hata : Malesef :( Şarkı Yokki Durdurayım !");
     }
     
     if(serverQueue && serverQueue.playing) {
@@ -19,7 +19,7 @@ module.exports = {
       serverQueue.connection.dispatcher.pause(true)
       
       
-      return message.channel.send("✅ | Paused The Current Playing Song")
+      return message.channel.send("<a:unlem:710206920274870333>  Onay : Tamam Şarkıyı Dediğin Gibi Durdurdum !")
   }  
   }
 }
