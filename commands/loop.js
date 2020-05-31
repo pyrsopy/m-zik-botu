@@ -1,6 +1,6 @@
 module.exports = {
-  name: "loop",
-  description: "LOOP THE QUEUE",
+  name: "döngü",
+  description: "Sıradaki Döngü",
   execute (client, message, args) {
     
     const { channel } = message.member.voice;
