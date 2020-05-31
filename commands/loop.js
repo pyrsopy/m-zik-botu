@@ -1,3 +1,4 @@
+
 module.exports = {
   name: "döngü",
   description: "Sıradaki Döngü",
@@ -27,3 +28,4 @@ module.exports = {
     
   }
 }
+
