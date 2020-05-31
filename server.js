@@ -7,7 +7,7 @@ const { TOKEN, PREFIX } = require("./config.json")
 //CLIENT EVENTS
 client.on("ready", () => {
   console.log('❤️ ')
-  client.user.setActivity("❤️ | Rythm Gold | Turkish Bot ")
+  client.user.setActivity("💡 Prefix : - | 🎵 Rythm Gold 🎵 | Turkish Bot | ❤️")
 })
 
 client.on("warn", info => console.log(info));
@@ -46,7 +46,7 @@ client.on("message", message => {
       client.commands.get(command).execute(client, message, args)
     } catch (err) { //IF IT CATCH ERROR
       console.log(err)
-      message.reply("I am getting error on using this command")
+      message.reply(" <a:unlem:710206920274870333>  | **Malesef Şuan Bota Ulaşılamıyor Lütfen Tekrar Sonra Deniyiniz** 🎵 Rythm Gold 🎵 ")
     }
     
   }
