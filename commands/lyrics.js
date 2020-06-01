@@ -14,10 +14,10 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("There is nothing that bot is playing");
+      return message.channel.send("<a:unlem:710206920274870333>  Hata : Şarkı Yok :/");
     }
     
-  let m = await message.channel.send("Finding lyrics")  
+  let m = await message.channel.send("<a:unlem:710206920274870333>  Onay : Arıyorum [ Uzun Sürebilir ]")  
     
     
     //NOw we gonna see on playing song
@@ -27,7 +27,7 @@ module.exports = {
     song.lyrics()
     .then(lyrics => {
       if (lyrics.length > 4095) {
-        return message.channel.send("LYRICS ARE TOO LONG")
+        return message.channel.send("<a:unlem:710206920274870333>  Hata : Çok Uzun")
       }
       
       if (lyrics.length < 2048) {
@@ -39,7 +39,7 @@ module.exports = {
   m.delete()
       
     })
-}).catch(err => message.channel.send("Unable to find lyrics"));
+}).catch(err => message.channel.send("<a:unlem:710206920274870333>  Hata : Şarkı Sözü Bulamadım :/"));
     
     
   }

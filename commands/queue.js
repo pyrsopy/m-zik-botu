@@ -11,7 +11,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("There is nothing in the queue");
+      return message.channel.send("<a:unlem:710206920274870333>  Hata : Sırada Başka Şarkı Yok :/");
     }
 
     message.channel.send(
