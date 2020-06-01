@@ -1,61 +1,111 @@
-const discord = require("discord.js")
-const client = new discord.Client({ disableEveryone: true, disabledEvents: ["TYPING_START"] });
-const { readdirSync } = require("fs");
-const { join } = require("path");
-const { TOKEN, PREFIX } = require("./config.json")
+// server.js
+// where your node app starts
 
-//CLIENT EVENTS
-client.on("ready", () => {
-  console.log('❤️ ')
-  client.user.setActivity("💡 Prefix : - | 🎵 Rythm Gold 🎵 | Turkish Bot | ❤️")
-})
+// init project
+const express = require("express");
+const bodyParser = require("body-parser");
+const app = express();
+const fs = require("fs");
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-client.on("warn", info => console.log(info));
+// we've started you off with Express,
+// but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
-client.on("error", console.error)
+// http://expressjs.com/en/starter/static-files.html
+app.use(express.static("public"));
 
-//DEFINIING
-client.commands = new discord.Collection()
-client.prefix = PREFIX
-client.queue = new Map();
+// init sqlite db
+const dbFile = "./.data/sqlite.db";
+const exists = fs.existsSync(dbFile);
+const sqlite3 = require("sqlite3").verbose();
+const db = new sqlite3.Database(dbFile);
 
+// if ./.data/sqlite.db does not exist, create it, otherwise print records to console
+db.serialize(() => {
+  if (!exists) {
+    db.run(
+      "CREATE TABLE Dreams (id INTEGER PRIMARY KEY AUTOINCREMENT, dream TEXT)"
+    );
+    console.log("New table Dreams created!");
 
-//LETS LOAD ALL FILES
-const cmdFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"))
-for (const file of cmdFiles) {
-  const command = require(join(__dirname, "commands", file))
-  client.commands.set(command.name, command)
-} //LOADING DONE
-
-
-//WHEN SOMEONE MESSAGE
-client.on("muzik", message => {
-   if (message.author.bot) return;
-  if (!message.guild) return;
-  
-  if(message.content.startsWith(PREFIX)) { //IF MESSSAGE STARTS WITH MINE BOT PREFIX
-    
-    const args = message.content.slice(PREFIX.length).trim().split(/ +/) //removing prefix from args
-    const command = args.shift().toLowerCase();
-    
-    if(!client.commands.has(command)) {
-      return;
-    } 
-    
-  try  { //TRY TO GET COMMAND AND EXECUTE
-      client.commands.get(command).execute(client, message, args)
-    } catch (err) { //IF IT CATCH ERROR
-      console.log(err)
-      message.reply(" <a:unlem:710206920274870333>  | **Malesef Şuan Bota Ulaşılamıyor Lütfen Tekrar Sonra Deniyiniz** 🎵 Rythm Gold 🎵 ")
-    }
-    
+    // insert default dreams
+    db.serialize(() => {
+      db.run(
+        'INSERT INTO Dreams (dream) VALUES ("Find and count some sheep"), ("Climb a really tall mountain"), ("Wash the dishes")'
+      );
+    });
+  } else {
+    console.log('Database "Dreams" ready to go!');
+    db.each("SELECT * from Dreams", (err, row) => {
+      if (row) {
+        console.log(`record: ${row.dream}`);
+      }
+    });
   }
-  
-  
 });
 
+// http://expressjs.com/en/starter/basic-routing.html
+app.get("/", (request, response) => {
+  response.sendFile(`${__dirname}/views/index.html`);
+});
 
+// endpoint to get all the dreams in the database
+app.get("/getDreams", (request, response) => {
+  db.all("SELECT * from Dreams", (err, rows) => {
+    response.send(JSON.stringify(rows));
+  });
+});
 
+// endpoint to add a dream to the database
+app.post("/addDream", (request, response) => {
+  console.log(`add to dreams ${request.body.dream}`);
 
-//DONT DO ANYTHING WITH THIS TOKEN lol
-client.login(TOKEN)
+  // DISALLOW_WRITE is an ENV variable that gets reset for new projects
+  // so they can write to the database
+  if (!process.env.DISALLOW_WRITE) {
+    const cleansedDream = cleanseString(request.body.dream);
+    db.run(`INSERT INTO Dreams (dream) VALUES (?)`, cleansedDream, error => {
+      if (error) {
+        response.send({ message: "error!" });
+      } else {
+        response.send({ message: "success" });
+      }
+    });
+  }
+});
+
+// endpoint to clear dreams from the database
+app.get("/clearDreams", (request, response) => {
+  // DISALLOW_WRITE is an ENV variable that gets reset for new projects so you can write to the database
+  if (!process.env.DISALLOW_WRITE) {
+    db.each(
+      "SELECT * from Dreams",
+      (err, row) => {
+        console.log("row", row);
+        db.run(`DELETE FROM Dreams WHERE ID=?`, row.id, error => {
+          if (row) {
+            console.log(`deleted row ${row.id}`);
+          }
+        });
+      },
+      err => {
+        if (err) {
+          response.send({ message: "error!" });
+        } else {
+          response.send({ message: "success" });
+        }
+      }
+    );
+  }
+});
+
+// helper function that prevents html/css/script malice
+const cleanseString = function(string) {
+  return string.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+};
+
+// listen for requests :)
+var listener = app.listen(process.env.PORT, () => {
+  console.log(`Your app is listening on port ${listener.address().port}`);
+});
