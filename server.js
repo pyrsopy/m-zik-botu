@@ -29,7 +29,7 @@ for (const file of cmdFiles) {
 
 
 //WHEN SOMEONE MESSAGE
-client.on("message", message => {
+client.on("muzik", message => {
    if (message.author.bot) return;
   if (!message.guild) return;
   
