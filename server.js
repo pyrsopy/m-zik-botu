@@ -59,5 +59,3 @@ client.on("muzik", message => {
 
 //DONT DO ANYTHING WITH THIS TOKEN lol
 client.login(TOKEN)
-
-
