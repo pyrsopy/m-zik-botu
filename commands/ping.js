@@ -3,7 +3,7 @@ module.exports = {
   name: "yardım",
   description: "Pinging the bot",
   execute(client, message) {
-  message.channel.send('<a:wuw:710205330625396868> | ``Rythm Gold Komut Menüsü``  ')
+  message.channel.send('<a:wuw:710205330625396868> | ``Rythm Gold Komut Menüsü``])
   message.channel.send('<a:rok2:710205094225772596>  | <a:wuw:710205330625396868>  | -play = Müziği Başlatmanızı Sağlar ')
   message.channel.send('<a:rok2:710205094225772596>  | <a:wuw:710205330625396868>  | -döngü = Müziği Tekrarlar ')
   message.channel.send('<a:rok2:710205094225772596>  | <a:wuw:710205330625396868>  | -lyrics = Müziğin Sözlerini İnternetten Arar ')
