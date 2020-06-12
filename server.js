@@ -1,16 +1,3 @@
-
-const express = require('express');
-const app = express();
-const http = require('http');
-    app.get("/", (request, response) => {
-    console.log(` Uptime Bot`);
-    response.sendStatus(200);
-    });
-    app.listen(process.env.PORT);
-    setInterval(() => {
-    http.get(`http://rythmgold.glitch.me/`);
-    }, 60000); 
-
 const discord = require("discord.js")
 const client = new discord.Client({ disableEveryone: true, disabledEvents: ["TYPING_START"] });
 const { readdirSync } = require("fs");
