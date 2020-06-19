@@ -1,5 +1,5 @@
 module.exports = {
-  name: "devam", 
+  name: "resume", 
   description: "Resume the paused Song",
   execute (client, message, args) {
       const { channel } = message.member.voice;
@@ -13,10 +13,10 @@ module.exports = {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume()
   
-  return message.channel.send("<a:unlem:710206920274870333>  Onay : Şarkıyı Devam Ettiriyom :/") 
+  return message.channel.send("✅ | Resumed the Paused Song") 
  }
     
-    message.channel.send("<a:unlem:710206920274870333>  Hata : Şarkıyı Durdurmamassın Önce Durdur :/")
+    message.channel.send("There is nothing paused that i can resume")
     
   }
 }

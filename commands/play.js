@@ -28,7 +28,7 @@ module.exports = {
     const urlcheck = videoPattern.test(args[0]);
 
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
-      return message.channel.send("<a:unlem:710206920274870333>  Hata : Çalma Listesine Bağlanamadım :/");
+      return message.channel.send("PLAYLIST CANNOT BE PLAYED");
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
@@ -57,7 +57,7 @@ module.exports = {
       } catch (error) {
         if (message.include === "copyright") {
           return message
-            .reply("<a:unlem:710206920274870333>  Dikkat : Bu Şarkı Telif Hakkı İçerebilir : -_-")
+            .reply("THERE IS COPYRIGHT CONTENT IN VIDEO -_-")
             .catch(console.error);
         } else {
           console.error(error);
