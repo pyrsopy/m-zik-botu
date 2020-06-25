@@ -8,7 +8,7 @@ module.exports = {
     if(!song) {
       queue.channel.leave();
       message.client.queue.delete(message.guild.id)
-      return queue.textChannel.send(" <a:wuw:710205330625396868>  | Müzik Sırası Artık Sona Erdi Görüşürüz ! | <a:yuv:710834564771086397> ").catch(console.error)
+      return queue.textChannel.send("Music Queue is Ended Now 😌").catch(console.error)
     }
     
     try {
@@ -23,7 +23,7 @@ module.exports = {
       }
       
       if(error.message.includes === "copyright") {
-        return message.channel.send("<a:pinn:710206773704785992>  | Bu Video Telif Hakkı İçerir ! |  <a:plah:710206256195043419> ")
+        return message.channel.send("THIS VIDEO CONTAINS COPYRIGHT CONTENT")
       } else {
         console.error(error)
       }
@@ -44,7 +44,7 @@ module.exports = {
     
     
     
-      queue.textChannel.send(`<a:pinn:710206773704785992>  | <a:wuw:710205330625396868>   Başlayan Müzik  |  <a:plah:710206256195043419>  | <a:nitro:710205457364418580> Şarkının İsmi : ${song.title} | <a:nitro:710205457364418580>    Url 'si [ ${song.url} ] |  🎵  | Rythm Gold ' İle Dinliyorsun `)
+      queue.textChannel.send(`**STARTED PLAYING** - [${song.title}](${song.url})`)
     
     
   }

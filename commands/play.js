@@ -11,13 +11,13 @@ module.exports = {
     //FIRST OF ALL WE WILL ADD ERROR MESSAGE AND PERMISSION MESSSAGE
     if (!args.length) {
       //IF AUTHOR DIDENT GIVE URL OR NAME
-      return message.channel.send("<a:unlem:710206920274870333>  Hata : Yanlış Kullanım | -play **| Şarkı İsmi | Veya URL Si | **!`");
+      return message.channel.send("WRONG SYNTAX : Type `play <URL> or text`");
     }
 
     const { channel } = message.member.voice;
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      return message.channel.send("<a:unlem:710206920274870333>  Hata : Sesli Kanala Girmen Lazım Dostum :/");
+      return message.channel.send("YOU NEED TO BE IN VOICE CHANNEL :/");
     }
 
     //WE WILL ADD PERMS ERROR LATER :(
@@ -28,7 +28,7 @@ module.exports = {
     const urlcheck = videoPattern.test(args[0]);
 
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
-      return message.channel.send("<a:unlem:710206920274870333>  Hata : Çalma Listesine Bağlanamadım :/");
+      return message.channel.send("PLAYLIST CANNOT BE PLAYED");
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
@@ -57,7 +57,7 @@ module.exports = {
       } catch (error) {
         if (message.include === "copyright") {
           return message
-            .reply("<a:unlem:710206920274870333>  Dikkat : Bu Şarkı Telif Hakkı İçerebilir : -_-")
+            .reply("THERE IS COPYRIGHT CONTENT IN VIDEO -_-")
             .catch(console.error);
         } else {
           console.error(error);
@@ -95,10 +95,11 @@ module.exports = {
         console.error(`Could not join voice channel: ${error}`);
         message.client.queue.delete(message.guild.id);
         await channel.leave();
-        return message.channel.send({embed: {"description": `😭 | Aga Kanala Katılma İzinim Yok Versen Sevincem : Hata  ${error}`, "color": "#ff2050"}}).catch(console.error);
+        return message.channel.send({embed: {"description": `😭 | Could not join the channel: ${error}`, "color": "#ff2050"}}).catch(console.error);
       }
     }
     
     
   }
 };
+  

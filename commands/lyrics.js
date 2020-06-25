@@ -8,16 +8,16 @@ module.exports = {
      const { channel } = message.member.voice;
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      return message.channel.send("<a:unlem:710206920274870333>  Hata : Sesli Kanala Girmen Lazım Dostum :/");
+      return message.channel.send("YOU NEED TO BE IN VOICE CHANNEL :/");
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("<a:unlem:710206920274870333>  Hata : Şarkı Yok :/");
+      return message.channel.send("There is nothing that bot is playing");
     }
     
-  let m = await message.channel.send("<a:unlem:710206920274870333>  Onay : Arıyorum [ Uzun Sürebilir ]")  
+  let m = await message.channel.send("Finding lyrics")  
     
     
     //NOw we gonna see on playing song
@@ -27,7 +27,7 @@ module.exports = {
     song.lyrics()
     .then(lyrics => {
       if (lyrics.length > 4095) {
-        return message.channel.send("<a:unlem:710206920274870333>  Hata : Çok Uzun")
+        return message.channel.send("LYRICS ARE TOO LONG")
       }
       
       if (lyrics.length < 2048) {
@@ -39,7 +39,7 @@ module.exports = {
   m.delete()
       
     })
-}).catch(err => message.channel.send("<a:unlem:710206920274870333>  Hata : Şarkı Sözü Bulamadım :/"));
+}).catch(err => message.channel.send("Unable to find lyrics"));
     
     
   }

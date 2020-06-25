@@ -1,16 +1,3 @@
-
-const express = require('express');
-const app = express();
-const http = require('http');
-    app.get("/", (request, response) => {
-    console.log(` Uptime Bot`);
-    response.sendStatus(200);
-    });
-    app.listen(process.env.PORT);
-    setInterval(() => {
-    http.get(`http://rythmgold.glitch.me/`);
-    }, 60000); 
-
 const discord = require("discord.js")
 const client = new discord.Client({ disableEveryone: true, disabledEvents: ["TYPING_START"] });
 const { readdirSync } = require("fs");
@@ -19,8 +6,8 @@ const { TOKEN, PREFIX } = require("./config.json")
 
 //CLIENT EVENTS
 client.on("ready", () => {
-  console.log('❤️ ')
-  client.user.setActivity("💡 Prefix : - | 🎵 Rythm Gold 🎵 | Turkish Bot | ❤️")
+  console.log('Ready TO play some soft songs')
+  client.user.setActivity("!yardım | Canbey Rythm Altyapısı ! ")
 })
 
 client.on("warn", info => console.log(info));
@@ -59,7 +46,7 @@ client.on("message", message => {
       client.commands.get(command).execute(client, message, args)
     } catch (err) { //IF IT CATCH ERROR
       console.log(err)
-      message.reply(" <a:unlem:710206920274870333>  | **Malesef Şuan Bota Ulaşılamıyor Lütfen Tekrar Sonra Deniyiniz** 🎵 Rythm Gold 🎵 ")
+      message.reply("I am getting error on using this command")
     }
     
   }
@@ -72,5 +59,3 @@ client.on("message", message => {
 
 //DONT DO ANYTHING WITH THIS TOKEN lol
 client.login(TOKEN)
-
-

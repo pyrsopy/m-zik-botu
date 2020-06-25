@@ -1,13 +1,12 @@
-
 module.exports = {
-  name: "döngü",
-  description: "Sıradaki Döngü",
+  name: "loop",
+  description: "LOOP THE QUEUE",
   execute (client, message, args) {
     
     const { channel } = message.member.voice;
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      return message.channel.send("<a:unlem:710206920274870333>  Hata : Sesli Kanala Girmen Lazım Dostum :/");
+      return message.channel.send("YOU NEED TO BE IN VOICE CHANNEL :/");
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
@@ -21,11 +20,10 @@ module.exports = {
     
     
     
-    message.channel.send(`<a:parti:710206859146952756>  Döngü  **${serverQueue.loop ? "Açtım Kapatmak İstiyorsan | Kapat" : " Kapattım Açmak İstiyorsan | Aç"}**`)
+    message.channel.send(`Loop is now **${serverQueue.loop ? "Enabled" : "Disabled"}**`)
     
     
     
     
   }
 }
-
