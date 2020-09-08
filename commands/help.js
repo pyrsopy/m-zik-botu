@@ -3,6 +3,6 @@ module.exports = {
   name: "yardım",
   description: "yardım",
   execute(client, message) {
-  message.channel.send(' | ``Rythm Gold Komut Menüsü``  ')
-  message.channel.send('!play \n Şarkı Çalıştırır \n !komutismi \n Bu Komudu Çalı')    }
+  message.channel.send(' | ``Desert Goose Müzik Bot Menüsü!``  ')
+  message.channel.send('!çal \n Müzik Çalıştırır. \n !komutismi \n Bu Komudu Çalı')    }
 }

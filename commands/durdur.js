@@ -7,18 +7,18 @@ module.exports = {
     const { channel } = message.member.voice;
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      return message.channel.send("YOU NEED TO BE IN VOICE CHANNEL :/");
+      return message.channel.send(":star: **Ses Kanalında Değilsin !** :star:");
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("Durdurabileceğim Bir Müz");
+      return message.channel.send(":star: **Durdurabileceğim Herhangi Bir Çalan Müzik Yok!** :star:");
     }
 
     serverQueue.songs = [];
     serverQueue.connection.dispatcher.end();
 
-    serverQueue.textChannel.send("**Stoped the song form playing music**");
+    serverQueue.textChannel.send(":star: **Müzik Durduruldu !** :star:");
   }
 };

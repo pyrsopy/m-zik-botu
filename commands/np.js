@@ -1,6 +1,6 @@
 module.exports = {
   name: "np",
-  description: "send the name of on going song",
+  description: "O Anda Çalan Şarkının Adını Gönderir.",
   execute (client, message, args) {
     
       const { channel } = message.member.voice;

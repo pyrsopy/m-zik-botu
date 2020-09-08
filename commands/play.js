@@ -6,7 +6,7 @@ const youtube = new YoutubeAPI(YOUTUBE_API_KEY);
 const { play } = require("../system/music.js") 
 module.exports = {
   name: "play",
-  description: "PLAY THE SOFTNESS OF THE SOUND
+  description: PLAY THE SOFTNESS OF THE SOUND,
   async execute(client, message, args) {
     //FIRST OF ALL WE WILL ADD ERROR MESSAGE AND PERMISSION MESSSAGE
     if (!args.length) {
@@ -17,7 +17,7 @@ module.exports = {
     const { channel } = message.member.voice;
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      return message.channel.send("YOU NEED TO BE IN VOICE CHANNEL :/");
+      return message.channel.send(":star: **Ses Kanalında Değilsin !** :star:");
     }
 
     //WE WILL ADD PERMS ERROR LATER :(
