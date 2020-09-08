@@ -6,7 +6,7 @@ const youtube = new YoutubeAPI(YOUTUBE_API_KEY);
 const { play } = require("../system/music.js") 
 module.exports = {
   name: "çal",
-  description: "PLAY THE SOFTNESS OF THE SOUND",
+  description: "Müziği Oynatır",
   async execute(client, message, args) {
     //FIRST OF ALL WE WILL ADD ERROR MESSAGE AND PERMISSION MESSSAGE
     if (!args.length) {
@@ -28,7 +28,7 @@ module.exports = {
     const urlcheck = videoPattern.test(args[0]);
 
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
-      return message.channel.send("PLAYLIST CANNOT BE PLAYED");
+      return message.channel.send(":star: **Çalma Listesi Oynatılamıyor !** :star:");
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);

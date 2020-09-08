@@ -1,17 +1,17 @@
 module.exports = {
-  name: "pause",
-  description: "pause the song",
+  name: "duraklat",
+  description: "Müziği Duraklatır",
   execute (client, message, args) {
   const { channel } = message.member.voice;
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      return message.channel.send("PLAY THE SOFTNESS OF THE SOUND");
+      return message.channel.send(":star: **Ses Kanalında Değilsin !** :star:");
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("There is nothing playing that i could pause");
+      return message.channel.send(":star: **Durdurabileceğim Herhangi Çalan Bir Müzik Bulunmamakta!** :star:");
     }
     
     if(serverQueue && serverQueue.playing) {
@@ -19,7 +19,7 @@ module.exports = {
       serverQueue.connection.dispatcher.pause(true)
       
       
-      return message.channel.send("✅ | Paused The Current Playing Song :star:")
+      return message.channel.send("✅ | Çalmakta Olan Müzik Duraklatıldı. :star:")
   }  
   }
 }
