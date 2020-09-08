@@ -1,5 +1,5 @@
 module.exports = {
-  name: "np",
+  name: "hangimüzik",
   description: "O Anda Çalan Şarkının Adını Gönderir.",
   execute (client, message, args) {
     
@@ -12,7 +12,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("Bot is not playing anything");
+      return message.channel.send(":star: **Müzik Botunda Hiçbir Müzik Çalmıyor !** :star:");
     }
     
     message.channel.send(serverQueue.songs[0].title)

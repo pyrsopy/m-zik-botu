@@ -1,8 +1,8 @@
 const Genius = new (require("genius-lyrics"))("ApavK7sxIw4WfaTNVe1g9Hc8civ8WqGW0NWx_akrti6Bcg3Nc7ILibv9LoVDoT0-");
 const { MessageEmbed } = require("discord.js")
 module.exports = {
-  name: "lyrics", 
-  description: "Get lyrics of Song",
+  name: "sözler", 
+  description: "Müziğin Sözlerini Al",
   async execute (client, message, args) {
     
      const { channel } = message.member.voice;
@@ -14,10 +14,10 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("There is nothing that bot is playing");
+      return message.channel.send(":star: **Müzik Botunun Oynattığı Bir Müzik Bulunmamakta !** :star:");
     }
     
-  let m = await message.channel.send("Finding lyrics")  
+  let m = await message.channel.send(":star: **Sözler Araştırılıyor...** :star:")  
     
     
     //NOw we gonna see on playing song
@@ -27,7 +27,7 @@ module.exports = {
     song.lyrics()
     .then(lyrics => {
       if (lyrics.length > 4095) {
-        return message.channel.send("LYRICS ARE TOO LONG")
+        return message.channel.send(":star: **Sözler Fazla Uzun !** :star:")
       }
       
       if (lyrics.length < 2048) {
@@ -39,7 +39,7 @@ module.exports = {
   m.delete()
       
     })
-}).catch(err => message.channel.send("Unable to find lyrics"));
+}).catch(err => message.channel.send(":star: **Müzik Sözleri Bulunamıyor !** :star:"));
     
     
   }
