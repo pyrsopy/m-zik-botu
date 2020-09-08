@@ -16,6 +16,6 @@ module.exports = {
     }
 
     serverQueue.connection.dispatcher.end();
-    message.channel.send("✔ | Müzik Başarıyla Geçildi!");
+    message.channel.send("**✔ | Müzik Başarıyla Geçildi!** :star:");
   }
 };

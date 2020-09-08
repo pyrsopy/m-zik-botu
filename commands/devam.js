@@ -1,6 +1,6 @@
 module.exports = {
-  name: "resume", 
-  description: "Resume the paused Song",
+  name: "devam", 
+  description: "Duraklatılan Müzik Devam Eder",
   execute (client, message, args) {
       const { channel } = message.member.voice;
     if (!channel) {
@@ -13,10 +13,10 @@ module.exports = {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume()
   
-  return message.channel.send("✅ | Duraklatılan Şarkı Başarıyla Devam Ediyor ! :star:") 
+  return message.channel.send("✅ | Duraklatılan Müzik Başarıyla Devam Ediyor ! :star:") 
  }
     
-    message.channel.send("Çalmaya Devam Edebileceğim Duraklatılmış Bir Şarkı Bulunmamakta !")
+    message.channel.send(":star: **Çalmaya Devam Edebileceğim Duraklatılmış Bir Müzik Bulunmamakta !** :star:")
     
   }
 }

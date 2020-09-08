@@ -5,13 +5,13 @@ const YoutubeAPI = require("simple-youtube-api");
 const youtube = new YoutubeAPI(YOUTUBE_API_KEY);
 const { play } = require("../system/music.js") 
 module.exports = {
-  name: "play",
+  name: "çal",
   description: "PLAY THE SOFTNESS OF THE SOUND",
   async execute(client, message, args) {
     //FIRST OF ALL WE WILL ADD ERROR MESSAGE AND PERMISSION MESSSAGE
     if (!args.length) {
       //IF AUTHOR DIDENT GIVE URL OR NAME
-      return message.channel.send("WRONG SYNTAX : Type `play <URL> or text`");
+      return message.channel.send("**Youtube Müzik URL'sini ya da Müziğin İsmini Yaz!**");
     }
 
     const { channel } = message.member.voice;

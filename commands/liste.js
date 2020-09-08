@@ -1,6 +1,6 @@
 module.exports = {
-  name: "queue",
-  description: "get list of added songs",
+  name: "liste",
+  description: "eklenen müzikleri listeler",
   execute: (client, message, args) => {
     const { channel } = message.member.voice;
     if (!channel) {
@@ -11,7 +11,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("There is nothing in the queue");
+      return message.channel.send(":star: **Listede Hiçbir Müzik Bulunmamakta !** :star:");
     }
 
     message.channel.send(
