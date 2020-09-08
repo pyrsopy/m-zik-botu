@@ -1,8 +1,8 @@
 const discord = require("discord.js");
 
 module.exports = {
-  name: "stop",
-  description: "Stop the music",
+  name: "durdur",
+  description: "Müziği Durdurur",
   execute(client, message, args) {
     const { channel } = message.member.voice;
     if (!channel) {
@@ -13,7 +13,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("There is nothing playing that i could stop");
+      return message.channel.send("Durdurabileceğim Bir Müz");
     }
 
     serverQueue.songs = [];
