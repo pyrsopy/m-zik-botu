@@ -1,5 +1,5 @@
 module.exports = {
-  name: "skip",
+  name: "geç",
   description: "Skip the song or shift song to next",
   execute(client, message, args) {
     const { channel } = message.member.voice;
@@ -12,10 +12,10 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("There is nothing playing that i could skip");
+      return message.channel.send(":star: **Geçebileceğim Herhangi Bir Müzik Bulunmuyor!** :star:");
     }
 
     serverQueue.connection.dispatcher.end();
-    message.channel.send("✔ | Skipping The Song");
+    message.channel.send("✔ | Müzik Başarıyla Geçildi!");
   }
 };

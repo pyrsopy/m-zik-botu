@@ -12,7 +12,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send(":star: **Döngüye Sokabileceğim Bir Şarkı Yok !** :star:");
+      return message.channel.send(":star: **Döngüye Sokabileceğim Bir Müzik Bulunmamakta !** :star:");
     }
     
     //OOOOF

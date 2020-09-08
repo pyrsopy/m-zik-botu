@@ -13,10 +13,10 @@ module.exports = {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume()
   
-  return message.channel.send("✅ | Resumed the Paused Song") 
+  return message.channel.send("✅ | Duraklatılan Şarkı Başarıyla Devam Ediyor ! :star:") 
  }
     
-    message.channel.send("There is nothing paused that i can resume")
+    message.channel.send("Çalmaya Devam Edebileceğim Duraklatılmış Bir Şarkı Bulunmamakta !")
     
   }
 }
