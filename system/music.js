@@ -8,7 +8,7 @@ module.exports = {
     if(!song) {
       queue.channel.leave();
       message.client.queue.delete(message.guild.id)
-      return queue.textChannel.send("Music Queue is Ended Now 😌").catch(console.error)
+      return queue.textChannel.send("Müzik Sırası Şimdi Sona Erdi.😌").catch(console.error)
     }
     
     try {
@@ -23,7 +23,7 @@ module.exports = {
       }
       
       if(error.message.includes === "copyright") {
-        return message.channel.send("THIS VIDEO CONTAINS COPYRIGHT CONTENT")
+        return message.channel.send("Bu video telif hakları nedeni ile oynatılamıyor.")
       } else {
         console.error(error)
       }
@@ -44,7 +44,7 @@ module.exports = {
     
     
     
-      queue.textChannel.send(`**STARTED PLAYING** - [${song.title}](${song.url})`)
+      queue.textChannel.send(`**Oynatılan Müzik** - [${song.title}](${song.url})`)
     
     
   }

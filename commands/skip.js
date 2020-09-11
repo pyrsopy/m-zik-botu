@@ -6,16 +6,16 @@ module.exports = {
 
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      return message.channel.send("YOU NEED TO BE IN VOICE CHANNEL :/");
+      return message.channel.send("Herhangi bir ses kanalında bulunmalısınız.");
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("There is nothing playing that i could skip");
+      return message.channel.send("Atlayabileceğim bir müzik yok.");
     }
 
     serverQueue.connection.dispatcher.end();
-    message.channel.send("✔ | Skipping The Song");
+    message.channel.send("✔ | Şarkı geçildi.");
   }
 };

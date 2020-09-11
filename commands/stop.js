@@ -13,12 +13,12 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("There is nothing playing that i could stop");
+      return message.channel.send("Durdurabileceğim bir müzik yok.");
     }
 
     serverQueue.songs = [];
     serverQueue.connection.dispatcher.end();
 
-    serverQueue.textChannel.send("**Stoped the song form playing music**");
+    serverQueue.textChannel.send("**Müzik durduruldu.**");
   }
 };
