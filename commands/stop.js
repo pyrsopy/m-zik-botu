@@ -1,13 +1,13 @@
 const discord = require("discord.js");
 
 module.exports = {
-  name: "stop",
+  name: "dur",
   description: "Stop the music",
   execute(client, message, args) {
     const { channel } = message.member.voice;
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      return message.channel.send("YOU NEED TO BE IN VOICE CHANNEL :/");
+      return message.channel.send("Herhangi bir ses kanalında bulunmalısınız.");
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);

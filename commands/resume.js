@@ -1,11 +1,11 @@
 module.exports = {
-  name: "resume", 
+  name: "duraklat", 
   description: "Resume the paused Song",
   execute (client, message, args) {
       const { channel } = message.member.voice;
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      return message.channel.send("YOU NEED TO BE IN VOICE CHANNEL :/");
+      return message.channel.send("Herhangi bir ses kanalında bulunmalısınız.");
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
@@ -13,10 +13,10 @@ module.exports = {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume()
   
-  return message.channel.send("✅ | Resumed the Paused Song") 
+  return message.channel.send("✅ | Duraklatılan Müzik Sürdürüldü.") 
  }
     
-    message.channel.send("There is nothing paused that i can resume")
+    message.channel.send("Duraklatılan bir müzik yok.")
     
   }
 }
