@@ -1,5 +1,5 @@
 module.exports = {
-  name: "loop",
+  name: "döngü",
   description: "LOOP THE QUEUE",
   execute (client, message, args) {
     
@@ -12,7 +12,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("There is nothing playing that i could loop");
+      return message.channel.send("Döngüye alabileceğim bir şarkı bulamadım.");
     }
     
     //OOOOF
@@ -20,7 +20,7 @@ module.exports = {
     
     
     
-    message.channel.send(`Loop is now **${serverQueue.loop ? "Enabled" : "Disabled"}**`)
+    message.channel.send(`Döngü şimdi **${serverQueue.loop ? "Aktif" : "Deaktif"}**`)
     
     
     

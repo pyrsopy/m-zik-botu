@@ -1,7 +1,7 @@
 const Genius = new (require("genius-lyrics"))("ApavK7sxIw4WfaTNVe1g9Hc8civ8WqGW0NWx_akrti6Bcg3Nc7ILibv9LoVDoT0-");
 const { MessageEmbed } = require("discord.js")
 module.exports = {
-  name: "lyrics", 
+  name: "şarkı-sözleri", 
   description: "Get lyrics of Song",
   async execute (client, message, args) {
     
@@ -14,10 +14,10 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("There is nothing that bot is playing");
+      return message.channel.send("Her");
     }
     
-  let m = await message.channel.send("Finding lyrics")  
+  let m = await message.channel.send("Şarkı sözlerini arıyorum.")  
     
     
     //NOw we gonna see on playing song

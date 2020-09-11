@@ -12,7 +12,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("Bot is not playing anything");
+      return message.channel.send("Herhangi bir şarkı oynatmıyorum.");
     }
     
     message.channel.send(serverQueue.songs[0].title)

@@ -13,10 +13,10 @@ module.exports = {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume()
   
-  return message.channel.send("✅ | Duraklatılan Müzik Sürdürüldü.") 
+  return message.channel.send("✅ | Duraklatılan şarkı sürdürüldü.") 
  }
     
-    message.channel.send("Duraklatılan bir müzik yok.")
+    message.channel.send("Duraklatılan bir şarkı yok.")
     
   }
 }

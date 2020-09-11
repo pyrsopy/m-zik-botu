@@ -11,7 +11,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("Kuyrukta müzik bulamadım.");
+      return message.channel.send("Kuyrukta şarkı bulamadım.");
     }
 
     message.channel.send(

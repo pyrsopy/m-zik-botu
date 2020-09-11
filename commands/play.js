@@ -11,7 +11,7 @@ module.exports = {
     //FIRST OF ALL WE WILL ADD ERROR MESSAGE AND PERMISSION MESSSAGE
     if (!args.length) {
       //IF AUTHOR DIDENT GIVE URL OR NAME
-      return message.channel.send("WRONG SYNTAX : Type `play <URL> or text`");
+      return message.channel.send("YANLIŞ SÖZDİZİMİ: oynat <URL> veya metin yazın");
     }
 
     const { channel } = message.member.voice;
@@ -28,7 +28,7 @@ module.exports = {
     const urlcheck = videoPattern.test(args[0]);
 
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
-      return message.channel.send("PLAYLIST CANNOT BE PLAYED");
+      return message.channel.send("Oynatma listesi oynatılamıyor.");
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
@@ -57,7 +57,7 @@ module.exports = {
       } catch (error) {
         if (message.include === "copyright") {
           return message
-            .reply("THERE IS COPYRIGHT CONTENT IN VIDEO -_-")
+            .reply("Bu video telif hakları nedeni ile oynatılamıyor.")
             .catch(console.error);
         } else {
           console.error(error);
@@ -95,7 +95,7 @@ module.exports = {
         console.error(`Could not join voice channel: ${error}`);
         message.client.queue.delete(message.guild.id);
         await channel.leave();
-        return message.channel.send({embed: {"description": `😭 | Could not join the channel: ${error}`, "color": "#ff2050"}}).catch(console.error);
+        return message.channel.send({embed: {"description": `😭 | Kanala giriş yapamıyorum.: ${error}`, "color": "#ff2050"}}).catch(console.error);
       }
     }
     

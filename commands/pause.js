@@ -11,7 +11,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("Duraklatabileceğim bir müzik bulamadım.");
+      return message.channel.send("Duraklatabileceğim bir şarkı bulamadım.");
     }
     
     if(serverQueue && serverQueue.playing) {
@@ -19,7 +19,7 @@ module.exports = {
       serverQueue.connection.dispatcher.pause(true)
       
       
-      return message.channel.send("✅ | Oynatılan müzik duraklatıldı.")
+      return message.channel.send("✅ | Oynatılan şarkı duraklatıldı.")
   }  
   }
 }
