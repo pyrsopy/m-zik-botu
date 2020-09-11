@@ -8,7 +8,7 @@ module.exports = {
     if(!song) {
       queue.channel.leave();
       message.client.queue.delete(message.guild.id)
-      return queue.textChannel.send("Müzik Sırası Şimdi Sona Erdi.😌").catch(console.error)
+      return queue.textChannel.send("Şarkı Sırası Şimdi Sona Erdi.").catch(console.error)
     }
     
     try {
@@ -44,7 +44,7 @@ module.exports = {
     
     
     
-      queue.textChannel.send(`**Oynatılan Müzik** - [${song.title}](${song.url})`)
+      queue.textChannel.send(`**Oynatılan Şarkı** - [${song.title}](${song.url})`)
     
     
   }

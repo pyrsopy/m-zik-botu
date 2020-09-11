@@ -14,7 +14,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("Her");
+      return message.channel.send("Herhangi bir şarkı oynatmıyorum.");
     }
     
   let m = await message.channel.send("Şarkı sözlerini arıyorum.")  
@@ -27,7 +27,7 @@ module.exports = {
     song.lyrics()
     .then(lyrics => {
       if (lyrics.length > 4095) {
-        return message.channel.send("LYRICS ARE TOO LONG")
+        return message.channel.send("Şarkı sözleri çoook uzun.")
       }
       
       if (lyrics.length < 2048) {
@@ -39,7 +39,7 @@ module.exports = {
   m.delete()
       
     })
-}).catch(err => message.channel.send("Unable to find lyrics"));
+}).catch(err => message.channel.send("Şarkı sözlerini bulamadım."));
     
     
   }
