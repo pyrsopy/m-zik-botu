@@ -7,8 +7,8 @@ const { TOKEN, PREFIX } = require("./config.json")
 //CLIENT EVENTS
 client.on("ready", () => {
   console.log('Ready TO play some soft songs')
-  client.user.setActivity("!yardım |MitaS DJ")
-  client.user.setActivity("İnstagram/mita2334 ")
+  client.user.setActivity("!yardım |MitaS DJ! ")
+  client.user.setActivity("İnstagram/sadadasda ")
 })
 
 client.on("warn", info => console.log(info));
