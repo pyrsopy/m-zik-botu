@@ -26,11 +26,11 @@ module.exports = {
     const song = results[0];
     song.lyrics()
     .then(lyrics => {
-      if (lyrics.length > 4095) {
+      if (lyrics.length > 9999) {
         return message.channel.send("Şarkı sözleri çoook uzun.")
       }
       
-      if (lyrics.length < 2048) {
+      if (lyrics.length < 9999) {
         const lyricsEmbed = new MessageEmbed()
           .setColor("#ff2050")
           .setDescription(lyrics.trim());
