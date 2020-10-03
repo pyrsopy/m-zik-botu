@@ -4,6 +4,6 @@ module.exports = {
   description: "yardım",
   execute(client, message) {
   message.channel.send(' ```Komut Menüsü```  ')
-  message.channel.send('!oynat \n Şarkı Çalıştırır \n !yardım \n Bu Komudu Çalıştır.')    
+  message.channel.send('m!oynat \n Şarkı Çalıştır ')    
 }
 }
