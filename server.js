@@ -8,7 +8,7 @@ const { TOKEN, PREFIX } = require("./config.json")
 client.on("ready", () => {
   console.log('Ready TO play some soft songs')
   client.user.setActivity("m!yardım  ")
-  client.user.setActivity("m!yardım  Owner by ∔ Murat Eren#0001 ")
+  client.user.setActivity("m!yardım / Owner by ∔ Murat Eren#0001 ")
 })
 
 client.on("warn", info => console.log(info));
