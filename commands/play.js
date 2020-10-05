@@ -79,7 +79,7 @@ module.exports = {
     
     if(serverQueue) {
       serverQueue.songs.push(song)
-      return serverQueue.textChannel.send(`\`${song.title}\`, Song Added to queue`)
+      return serverQueue.textChannel.send(`\`${song.title}\`, Sıraya eklenen şarkı`)
       .catch(console.error)
     } else {
       queueConstruct.songs.push(song);
